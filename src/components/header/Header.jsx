@@ -1,34 +1,27 @@
+import SearchBar from "../BarraDeBusca/BarraDeBusca";
+import Logo from "../LogoSRP2/Logo";
+
 import styles from "./Header.module.css";
 import logo from "../../assets/logoSRP2.png";
 import avatar from "../../assets/placeholderteste.jpeg";
 
-import { FaSearch, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 function Header() {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.searchContainer}>
-          <div className={styles.searchWrapper}>
-            <button className={styles.searchButton}>
-              <FaSearch />
-            </button>
+        <section className={styles.searchContainer}>
+          <SearchBar />
+        </section>
 
-            <input
-              type="text"
-              placeholder=""
-              className={styles.search}
-            />
-          </div>
-        </div>
-
-        <div className={styles.logoContainer}>
-          <img
+        <section className={styles.logoContainer}>
+          <Logo
             src={logo}
             alt="SaborRei"
-            className={styles.logo}
+            tamanho="225px"
           />
-        </div>
+        </section>
 
         <nav className={styles.nav}>
           <a href="#">Home</a>

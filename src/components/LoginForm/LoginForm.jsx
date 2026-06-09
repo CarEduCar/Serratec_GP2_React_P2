@@ -1,14 +1,48 @@
 import { useState } from "react";
 import styles from "./LoginForm.module.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import logo from "../../assets/logoSRP2.png";
+import Logo from "../LogoSRP2/Logo";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
+  const [sucesso, setSucesso] = useState("");
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+
+  const usuarioTeste = {
+    email: "teste@gmail.com",
+    senha: "123456",
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!email || !senha) {
+      setErro("Preencha todos os campos");
+      setSucesso("");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setErro("Digite um email válido");
+      setSucesso("");
+      return;
+    }
+
+    if (
+      email !== usuarioTeste.email ||
+      senha !== usuarioTeste.senha
+    ) {
+      setErro("Email ou senha inválidos");
+      setSucesso("");
+      return;
+    }
+
+    setErro("");
+    setSucesso("Login realizado com sucesso!");
 
     console.log({
       email,
@@ -19,36 +53,79 @@ function LoginForm() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <img
+        <Logo
           src={logo}
           alt="SaborRei"
-          className={styles.logo}
+          tamanho="255px"
         />
 
         <h1>Login</h1>
+
+        <p className={styles.subtitulo}>
+          Bem-vindo ao SaborREI
+        </p>
 
         <form onSubmit={handleSubmit}>
           <label>Email</label>
 
           <input
             type="email"
-            placeholder="Digite seu email"
+            placeholder="email@exemplo.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setErro("");
+              setSucesso("");
+            }}
           />
 
           <label>Senha</label>
 
-          <input
-            type="password"
-            placeholder="Digite sua senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
+          <div className={styles.senhaContainer}>
+            <input
+              type={mostrarSenha ? "text" : "password"}
+              placeholder="********"
+              value={senha}
+              onChange={(e) => {
+                setSenha(e.target.value);
+                setErro("");
+                setSucesso("");
+              }}
+            />
 
-          <button type="submit">
-            Entrar
-          </button>
+            <button
+              type="button"
+              className={styles.olho}
+              onClick={() =>
+                setMostrarSenha(!mostrarSenha)
+              }
+            >
+              {mostrarSenha ? (
+                <FaEyeSlash />
+              ) : (
+                <FaEye />
+              )}
+            </button>
+          </div>
+
+          {erro && (
+            <p className={styles.erro}>
+              {erro}
+            </p>
+          )}
+
+          {sucesso && (
+            <p className={styles.sucesso}>
+              {sucesso}
+            </p>
+          )}
+
+          <button
+          type="submit"
+          className={styles.botaocerto}
+          >
+              Entrar
+             </button>
         </form>
       </div>
     </div>

@@ -2,6 +2,7 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: white;
 }
 
 * {
@@ -16,8 +17,12 @@ body,
   display: flex;
 
   flex-direction: column;
+
+  background-color: white;
 }
 
 .content {
   flex: 1;
+
+  background-color: white;
 }
