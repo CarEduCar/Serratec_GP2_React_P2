@@ -1,0 +1,8 @@
+.categoriasCard {
+    display: flex;
+    width: 100%;
+    background-color: var(--bgCor);
+}
+
+
+

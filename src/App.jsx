@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import './pages/Categorias/index'
+import { Categorias } from './pages/Categorias/index'
 
 function App() {
-  
 
-  return 
-  // HTML
+  
+  
+  return <>
+  <Categorias/>
+  </>
 }
 
 export default App
