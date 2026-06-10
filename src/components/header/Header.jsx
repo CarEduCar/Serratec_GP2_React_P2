@@ -25,9 +25,9 @@ function Header() {
 
         <nav className={styles.nav}>
           <a href="#">Home</a>
-          <a href="#">Receitas</a>
-          <a href="#">Categorias</a>
-          <a href="#">Favoritos</a>
+          <a href="#">Recipes</a>
+          <a href="#">Categories</a>
+          <a href="#">Favorites</a>
 
           <FaStar className={styles.star} />
 

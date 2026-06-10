@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.left}>
-        <p>Quem somos ➜</p>
+        <p>Who we are ➜</p>
       </div>
 
       <Logo

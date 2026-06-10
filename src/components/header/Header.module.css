@@ -16,14 +16,6 @@
   justify-content: flex-start;
 }
 
-.logoContainer {
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .nav {
   flex: 1.2;
 
@@ -35,7 +27,7 @@
 }
 
 .nav a {
-  color: white;
+  color: #F9F5E6;
 
   text-decoration: none;
 
@@ -88,5 +80,8 @@
 }
 .separator {
   height: 3px;
+  
   width: 100%;
+
+  background-color: transparent;
 }
