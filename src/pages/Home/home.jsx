@@ -4,7 +4,9 @@ import Carousel from "../../componets/Carousel/Carousel";
 import DivisaoTitulo from "../../componets/DivisaoTitulo/DivisaoTitulo"
 import styles from "./Home.module.css";
 
+
 function Home() {
+
   return (
     <>
       <Carousel />
@@ -38,7 +40,7 @@ function Home() {
         <CardVertical></CardVertical>
 
       </div>
-
+      
 
     </>
   );
