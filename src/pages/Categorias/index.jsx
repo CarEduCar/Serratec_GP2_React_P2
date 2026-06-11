@@ -19,18 +19,18 @@ export const Categorias = () => {
         <section className={styles.listaCategorias}>
             
             {/* <Link to="/pages/listagem" state={{tipoCategoria: salgado}}>*/}
-            <CategoriasCard 
-                src='./carnes.png'
-                alt='Picanha'
-                nomeCategoria="Salgado"
-                cor="#c15700"/>
+                <CategoriasCard 
+                    src='./carnes.png'
+                    alt='Picanha'
+                    nomeCategoria="Salgado"
+                    cor="#c15700"/>
             {/* </Link> */}
             
             {/* <Link to="/pages/listagem" state={{tipoCategoria: agridoce}}>*/}
-            <CategoriasCard src='./vegana.png'
-            alt='Salada'
-            nomeCategoria="Agridoce"
-            cor="#0fd230"/>
+                <CategoriasCard src='./vegana.png'
+                    alt='Salada'
+                    nomeCategoria="Agridoce"
+                    cor="#0fd230"/>
             {/* </Link> */}
 
             {/* <Link to="/pages/listagem" state={{tipoCategoria: doce}}>*/}
@@ -41,36 +41,45 @@ export const Categorias = () => {
                     cor="#33b5fb"
                 />
             {/* </Link> */}
+
+            {/* ----- BUSCA! ----- */}
+
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: frango}}>*/}
+                <CategoriasCard src='./coxadefrango.png'
+                    alt='Prato Com Frango'
+                    nomeCategoria="Carne de Frango"
+                    cor="#fa2e2e"/>
+            {/* </Link> */}
+            
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: sushi}}>*/}
+                <CategoriasCard src='./sushi.png'
+                    alt='Sushis'
+                    nomeCategoria="Frutos do Mar"
+                    cor="#ff701e"/>
+            {/* </Link> */}
+
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: Feijoada}}>*/}       
+                <CategoriasCard src='./diversos.png'
+                    alt='Feijoada'
+                    nomeCategoria="Feijoadas"
+                    cor="#b77a59"/>
+            {/* </Link> */}
+
 {/*   
             <CategoriasCard src='./macarraoCategorias.jpg'
             alt='Prato de macarrão'
             nomeCategoria="Massas"
             cor="#fec457"/>
 
-            <CategoriasCard src='./sushi.png'
-            alt='Sushis'
-            nomeCategoria="Frutos do Mar"
-            cor="#ff701e"/>
-
             <CategoriasCard src='./saudavel.png'
             alt='comidaSaudavel'
             nomeCategoria="Vegetariano"
             cor="#10a729"/>
 
-            <CategoriasCard src='./coxadefrango.png'
-            alt='Prato Com Frango'
-            nomeCategoria="Carne de Frango"
-            cor="#fa2e2e"/>
-
             <CategoriasCard src='./acompanhamento.png'
             alt='Prato de Acompanhamento'
             nomeCategoria="Acompanhamentos"
             cor="#fd96f3"/>
-
-            <CategoriasCard src='./diversos.png'
-            alt='Feijoada'
-            nomeCategoria="Diversos"
-            cor="#b77a59"/>
 
             <CategoriasCard src='./espetinhos.png'
             alt='Amedoins Doce'
