@@ -18,19 +18,22 @@ export const Categorias = () => {
 
         <section className={styles.listaCategorias}>
             
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: salgado}}>*/}
             <CategoriasCard 
                 src='./carnes.png'
                 alt='Picanha'
                 nomeCategoria="Salgado"
-                cor="#c15700"
-            />
+                cor="#c15700"/>
+            {/* </Link> */}
             
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: agridoce}}>*/}
             <CategoriasCard src='./vegana.png'
             alt='Salada'
             nomeCategoria="Agridoce"
             cor="#0fd230"/>
+            {/* </Link> */}
 
-            {/* <Link to="/doces" style={{ textDecoration: 'none' }}> */}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: doce}}>*/}
                 <CategoriasCard 
                     src='./bolo.png'
                     alt='Bolo de Chocolate'
