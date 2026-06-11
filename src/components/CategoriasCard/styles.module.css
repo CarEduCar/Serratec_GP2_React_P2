@@ -16,6 +16,8 @@
     background-color: var(--bgCor);
 
     border: 2px solid color-mix(in srgb, var(--bgCor), black 20%);
+
+    cursor: pointer;
 }
 
 .categoriasCard:hover {
