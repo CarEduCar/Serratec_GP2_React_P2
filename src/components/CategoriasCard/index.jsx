@@ -4,13 +4,11 @@ export const CategoriasCard = ({src, alt, nomeCategoria, cor, children}) => {
 
     return <div className={styles.categoriasCard} style={{ '--bgCor': cor }}>
 
-        <img src={src} alt={alt}>
-            
-        </img>
+        <img src={src} alt={alt}/>
 
-        <h1 className={styles.nomeCategoria}>
+        <div className={styles.nomeCategoria}>
             {nomeCategoria}
-        </h1>
+        </div>
         
         {children}
     </div>  
