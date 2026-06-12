@@ -5,7 +5,28 @@ import DivisaoTitulo from "../../components/DivisaoTitulo/DivisaoTitulo"
 import styles from "./Home.module.css";
 import BannerCategorias from "../../components/Banner/BannerCategoria"
 
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+
 function Home() {
+
+  const [receitas, setReceitas] = useState([]);
+
+  useEffect(() => {
+
+  api.get("/receitas/todas?page=1&limit=93")
+    .then((response) => {
+
+      console.log(response.data);
+
+      setReceitas(response.data.items);
+
+    })
+    .catch((erro) => {
+      console.log(erro);
+    });
+
+}, []);
 
   return (
     <>
@@ -14,11 +35,14 @@ function Home() {
       <DivisaoTitulo titulo="Receitas em Destaque"/>
       
       <div className={styles.cardContainer}>
-        <CardHorizontal />
-        <CardHorizontal />
-        <CardHorizontal />
-        <CardHorizontal />
-        <CardHorizontal />
+        {receitas.slice(0, 5).map((receita) => (
+        <CardHorizontal  
+          key={receita.id}
+          imagem={receita.link_imagem}
+          titulo={receita.receita}
+          descricao={receita.ingredientes} />
+        ))}
+      
       </div>
 
       <DivisaoTitulo titulo="Categorias"/>
@@ -44,20 +68,16 @@ function Home() {
         <Carousel />
 
           <div className={styles.cardContainer1}>
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
+            {receitas.slice(85, 93).map((receita) => (
+        <CardHorizontal  
+          key={receita.id}
+          imagem={receita.link_imagem}
+          titulo={receita.receita}
+          descricao={receita.ingredientes} />
+        ))}
+            
           </div>
 
-          <div className={styles.cardContainer2}>
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
-            <CardHorizontal />
-          </div>
       </div>
 
       <DivisaoTitulo titulo="Seleção da equipe"/>

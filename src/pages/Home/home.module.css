@@ -7,9 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  column-gap: 40px;
+  row-gap: 30px;
   margin: 0  auto;
   padding: 20px;
+  /* flex-wrap: wrap; */
 }
 body{
   overflow-x: hidden;
@@ -49,9 +51,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  column-gap: 40px;
+  row-gap: 30px;
   margin: 0  auto;
   padding: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  
+  
 }
 body{
   overflow-x: hidden;
@@ -81,4 +88,7 @@ body{
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+.UltimasConteiner{
+  margin-top: -30px;
 }
