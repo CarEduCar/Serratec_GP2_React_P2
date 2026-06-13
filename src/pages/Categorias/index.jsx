@@ -45,7 +45,7 @@ export const Categorias = () => {
 
             {/* ----- BUSCA! ----- */}
 
-            {/* <Link to="/pages/listagem" state={{/receitas/descricao?descricao=frango&page=1&limit=999}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=frango&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('coxadefrango.png')}
                     alt='Prato Com Frango'
                     nomeCategoria="Carne de Frango"
