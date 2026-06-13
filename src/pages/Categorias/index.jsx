@@ -21,21 +21,21 @@ export const Categorias = () => {
 
         <section className={styles.listaCategorias}>
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/doce}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/doce}}>*/}
                 <CategoriasCard src={getImagem('arrozFeijão.png')}
                     alt='Picanha'
                     nomeCategoria="Salgado"
                     cor="#7c65f3"/>
             {/* </Link> */}
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/agridoce}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/agridoce}}>*/}
                 <CategoriasCard src={getImagem('vegana.png')}
                     alt='Salada'
                     nomeCategoria="Agridoce"
                     cor="#0fd230"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/salgado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/salgado}}>*/}
                 <CategoriasCard src={getImagem('bolo.png')}
                     alt='Bolo de Chocolate'
                     nomeCategoria="Doce"
@@ -45,63 +45,63 @@ export const Categorias = () => {
 
             {/* ----- BUSCA! ----- */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: frango}}>*/}
+            {/* <Link to="/pages/listagem" state={{/receitas/descricao?descricao=frango&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('coxadefrango.png')}
                     alt='Prato Com Frango'
                     nomeCategoria="Carne de Frango"
                     cor="#f63c3c"/>
             {/* </Link> */}
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: sushi}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=sushi&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('sushi.png')}
                     alt='Sushis'
                     nomeCategoria="Sushi"
                     cor="#ff701e"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: feijoada}}>*/}       
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=feijoada&page=1&limit=999}}>*/}       
                 <CategoriasCard src={getImagem('diversos.png')}
                     alt='Feijoada'
                     nomeCategoria="Feijoadas"
                     cor="#b77a59"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: risotto}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=risotto&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('risotto.png')}
                     alt='Risottos'
                     nomeCategoria="Risotos"
                     cor="#fec457"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: pimenta}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=pimenta&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('picante.png')}
                     alt='Caldo Apimentado'
                     nomeCategoria="Picantes"
                     cor="#ff5050"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: queijo}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=queijo&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('bolinhaQueijo.png')}
                     alt='Bolinha de Queijo temperada'
                     nomeCategoria="Queijos"
                     cor="#e8ff1b"/>
             {/* </Link> */}
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: pescado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=pescado&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('pescado.png')}
                     alt='Pescado'
                     nomeCategoria="Pescados"
                     cor="#10a729"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: pescado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=ceviche&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('ceviche.png')}
                     alt='Ceviche'
                     nomeCategoria="Ceviches"
                     cor="#fd96f3"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: pescado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/descricao?descricao=bisteca&page=1&limit=999}}>*/}
                 <CategoriasCard src={getImagem('bisteca.png')}
                     alt='Carne Bisteca'
                     nomeCategoria="Bistecas"
