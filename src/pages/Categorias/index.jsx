@@ -21,21 +21,21 @@ export const Categorias = () => {
 
         <section className={styles.listaCategorias}>
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: salgado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/doce}}>*/}
                 <CategoriasCard src={getImagem('arrozFeijão.png')}
                     alt='Picanha'
                     nomeCategoria="Salgado"
                     cor="#7c65f3"/>
             {/* </Link> */}
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: agridoce}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/agridoce}}>*/}
                 <CategoriasCard src={getImagem('vegana.png')}
                     alt='Salada'
                     nomeCategoria="Agridoce"
                     cor="#0fd230"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria: doce}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria: /receitas/tipo/salgado}}>*/}
                 <CategoriasCard src={getImagem('bolo.png')}
                     alt='Bolo de Chocolate'
                     nomeCategoria="Doce"
