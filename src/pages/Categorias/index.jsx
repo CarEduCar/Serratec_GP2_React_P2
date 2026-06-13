@@ -21,7 +21,7 @@ export const Categorias = () => {
 
         <section className={styles.listaCategorias}>
             
-            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/doce}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/salgado}}>*/}
                 <CategoriasCard src={getImagem('arrozFeijão.png')}
                     alt='Picanha'
                     nomeCategoria="Salgado"
@@ -35,7 +35,7 @@ export const Categorias = () => {
                     cor="#0fd230"/>
             {/* </Link> */}
 
-            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/salgado}}>*/}
+            {/* <Link to="/pages/listagem" state={{tipoCategoria:/receitas/tipo/doce}}>*/}
                 <CategoriasCard src={getImagem('bolo.png')}
                     alt='Bolo de Chocolate'
                     nomeCategoria="Doce"
