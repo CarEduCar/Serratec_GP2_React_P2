@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useFavContext } from "../../context/FavContext/useFavContext";
+import ConfirmModal from "../Confirmmodal/confirmmodal";
 
 export default function ItemFavorito({ recipe }) {
   const { ehFavorito, adicionarFavorito, removerFavorito } = useFavContext();
+  const [modalAberto, setModalAberto] = useState(false);
 
   const estaNaLista = ehFavorito(recipe);
 
@@ -10,10 +13,15 @@ export default function ItemFavorito({ recipe }) {
 
   const clicarFavorito = () => {
     if (estaNaLista) {
-      removerFavorito(recipe);
+      setModalAberto(true);
     } else {
       adicionarFavorito(recipe);
     }
+  };
+
+  const confirmarRemocao = () => {
+    removerFavorito(recipe);
+    setModalAberto(false);
   };
 
   return (
@@ -29,6 +37,16 @@ export default function ItemFavorito({ recipe }) {
           {estaNaLista ? "★" : "☆"}
         </button>
       </div>
+
+      <ConfirmModal
+        aberto={modalAberto}
+        titulo="Remover dos favoritos"
+        mensagem={`Tem certeza que deseja remover "${titulo}" dos seus favoritos?`}
+        textoConfirmar="Remover"
+        textoCancelar="Cancelar"
+        onConfirmar={confirmarRemocao}
+        onCancelar={() => setModalAberto(false)}
+      />
     </div>
   );
 }

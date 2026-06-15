@@ -73,6 +73,7 @@
   font-size: 16px;
   text-align: center;
   padding: 40px 16px;
+  grid-column: 1 / -1;
 }
 
 .recipe-card__fav-btn {

@@ -12,7 +12,7 @@ export default function Favoritos() {
         <DivisaoTitulo titulo="Favoritos"/>
         <div className="favoritos-grid">
           {favoritos.length === 0 ? (
-            <p>Você ainda não adicionou nenhuma receita aos favoritos.</p>
+            <p className="favoritos-vazio">Você ainda não adicionou nenhuma receita aos favoritos.</p>
           ) : (
             favoritos.map((receita) => (
               <ItemFavorito
