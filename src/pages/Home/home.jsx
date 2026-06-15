@@ -38,6 +38,7 @@ function Home() {
         {receitas.slice(0, 5).map((receita) => (
         <CardHorizontal  
           key={receita.id}
+          id={receita.id}
           imagem={receita.link_imagem}
           titulo={receita.receita}
           descricao={receita.ingredientes} />
@@ -71,6 +72,7 @@ function Home() {
             {receitas.slice(85, 93).map((receita) => (
         <CardHorizontal  
           key={receita.id}
+          id={receita.id}
           imagem={receita.link_imagem}
           titulo={receita.receita}
           descricao={receita.ingredientes} />
