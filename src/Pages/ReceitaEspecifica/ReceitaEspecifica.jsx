@@ -4,13 +4,13 @@ import { ListaIngredientes } from "../../components/ListaIngredientes";
 import { ReceitaInfo } from "../../components/ReceitaInfo";
 import { ModoPreparo } from "../../components/ModoPreparo";
 
-
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
 
 function ReceitaDetails() {
 
 const [favorito, setFavorito] = useState(false);
+
 
   const { id } = useParams();
 
