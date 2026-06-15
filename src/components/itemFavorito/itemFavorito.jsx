@@ -5,6 +5,9 @@ export default function ItemFavorito({ recipe }) {
 
   const estaNaLista = ehFavorito(recipe);
 
+  const titulo = recipe.title ?? recipe.receita;
+  const imagem = recipe.image ?? recipe.link_imagem;
+
   const clicarFavorito = () => {
     if (estaNaLista) {
       removerFavorito(recipe);
@@ -15,9 +18,9 @@ export default function ItemFavorito({ recipe }) {
 
   return (
     <div className="recipe-card">
-      <img src={recipe.image} alt={recipe.title} className="recipe-card__img" />
+      <img src={imagem} alt={titulo} className="recipe-card__img" />
       <div className="recipe-card__footer">
-        <span className="recipe-card__title">{recipe.title}</span>
+        <span className="recipe-card__title">{titulo}</span>
         <button
           onClick={clicarFavorito}
           className="recipe-card__fav-btn"
