@@ -5,7 +5,7 @@ export default function ConfirmModal({
   titulo = "Confirmar ação",
   mensagem,
   textoConfirmar = "Sim",
-  textoCancelar = "Não",
+  textoCancelar = "Não!",
   onConfirmar,
   onCancelar,
 }) {
