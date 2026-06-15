@@ -5,17 +5,17 @@ export default function ConfirmModal({
   titulo = "Confirmar ação",
   mensagem,
   textoConfirmar = "Sim",
-  textoCancelar = "Não!",
+  textoCancelar = "Não",
   onConfirmar,
   onCancelar,
 }) {
   if (!aberto) return null;
-
+  // comentario para commit
   return (
     <div className={styles.overlay} onClick={onCancelar}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <h2 className={styles.titulo}>{titulo}</h2>
-
+        
         {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
 
         <div className={styles.botoes}>
