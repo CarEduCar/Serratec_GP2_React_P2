@@ -35,3 +35,11 @@
 .left p {
   font-size: 15px;
 }
+
+.separator {
+  height: 50px;
+  
+  width: 100%;
+
+  background-color: transparent;
+}
