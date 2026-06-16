@@ -1,5 +1,5 @@
 .footer {
-  min-height: 80px;
+  min-height: 100px;
 
   background-color: #7d241c;
 
@@ -34,4 +34,14 @@
 
 .left p {
   font-size: 15px;
+}
+
+.separator {
+  color: #F9F5E6;
+
+  height: 50px;
+  
+  width: 100%;
+
+  background-color: transparent;
 }

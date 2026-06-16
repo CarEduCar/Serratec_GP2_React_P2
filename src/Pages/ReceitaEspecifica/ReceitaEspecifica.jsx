@@ -3,69 +3,87 @@ import styles from './ReceitaEspecifica.module.css';
 import { ListaIngredientes } from "../../components/ListaIngredientes";
 import { ReceitaInfo } from "../../components/ReceitaInfo";
 import { ModoPreparo } from "../../components/ModoPreparo";
+import { useFavContext } from "../../context/FavContext/useFavContext";
 
-export const ReceitaDetails = () => {
-    
-    /*const [receita,setReceita] = useState(null);*/
 
-    /*receita fícticia para apresentar a página, (excluir quando conectar com API e usar o useState acima) */
-    const receita = {
-    strMeal: "Salpicão",
-    strCategory: "Chicken",
-    strArea: "Brazilian",
-    strTags: "Christmas, Dinner",
-    strInstructions:
-        "Misture todos os ingredientes e sirva gelado.",
+import { useParams } from "react-router-dom";
+import api from "../../services/api";
 
-    strMealThumb:
-        "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
+function ReceitaDetails() {
 
-    strIngredient1: "Chicken",
-    strMeasure1: "500g",
+  const { ehFavorito, adicionarFavorito, removerFavorito } = useFavContext();
 
-    strIngredient2: "Carrot",
-    strMeasure2: "2",
+  const { id } = useParams();
 
-    strIngredient3: "Mayonnaise",
-    strMeasure3: "200g"
-};
+  const [receita, setReceita] = useState(null);
 
-    if (!receita){
-        return <h1>Teste funcionando</h1>
-    }
+  useEffect(() => {
+    api.get(`/receitas/${id}`)
+      .then((response) => {
+        setReceita(response.data);
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, [id]);
 
-    const getIngredientes = (receita) => {
+  //erro caso id da receita n exista
+  if (!receita) {
+    return <h1>Carregando...</h1>;
+  }
 
-        /*Método para tranformar os ingredientes e quantidades em um array*/
-        const ingredientes = [];
+  return (
+  <div className={styles.receita}>
+  <div className={styles.container}>
 
-        for (let i = 1; i <= 20; i++) {
-            const ingrediente = receita[`strIngredient${i}`];
-            const medida = receita[`strMeasure${i}`];
+    <img
+      src={receita.link_imagem}
+      alt={receita.receita}
+      className={styles.imagem}
+    />
 
-            if (ingrediente && ingrediente.trim()) {
-                ingredientes.push({
-                    ingrediente,
-                    medida: medida?.trim() || ""
-                });
+    <div className={styles.info}>
+      <button
+            className={styles.favorito}
+            onClick={() =>
+              ehFavorito(receita)
+                ? removerFavorito(receita)
+                : adicionarFavorito({
+                    id: receita.id,
+                    title: receita.receita,
+                    image: receita.link_imagem,
+                  })
             }
-        }
-        return ingredientes;
-    }
+        >
+            {ehFavorito(receita) ? "⭐" : "☆"}
+        </button>
+      <h1 className={styles.titulo}>
+        {receita.receita}
+        
+      </h1>
+    
+     
 
-    const ingredientes = receita 
-    ? getIngredientes(receita)
-    :[];
 
-return <div className={styles.receita}>
-                <ReceitaInfo receita={receita}/>
+      <h2 className={styles.subtitulo}>
+        Ingredientes
+      </h2>
 
-                <div className={styles.instrucoes}>
-                    <ListaIngredientes ingredientes={ingredientes} />
+      <p className={styles.ingredientes}>
+        {receita.ingredientes}
+      </p>
 
-                    <ModoPreparo instrucoes = {receita.strInstructions}/>
-                </div>
+      <h2 className={styles.subtitulo}>
+        Modo de Preparo
+      </h2>
+
+      <p className={styles.preparo}>
+        {receita.modo_preparo}
+      </p>
     </div>
-};
 
+  </div>
+</div>
+);
+}
 export default ReceitaDetails;
