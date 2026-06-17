@@ -31,9 +31,13 @@ function Header() {
 
   const [menuAberto, setMenuAberto] = useState(false);
 
+  //enzo aqui comeca a funcao ja com o bolean
   const usuarioLogado = JSON.parse(
-    localStorage.getItem("usuarioLogado")
+    localStorage.getItem("usuarioLogado") || "null"
   );
+
+                  // e aqui o bolean  o !!
+  const estaLogado = !!usuarioLogado;
 
   return (
     <>
@@ -69,11 +73,27 @@ function Header() {
             />
 
             {menuAberto && (
-              <div className={styles.menuUsuario}>
-                <Link to="/login">Login</Link>
-                <Link to="/cadastro">Cadastro</Link>
-              </div>
-            )}
+  <div className={styles.menuUsuario}>
+    {estaLogado ? (
+      <>
+        <button
+          className={styles.botaoSair}
+          onClick={() => {
+            localStorage.removeItem("usuarioLogado");
+            window.location.reload();
+          }}
+        >
+          Sair
+        </button>
+      </>
+    ) : (
+      <>
+        <Link to="/login">Login</Link>
+        <Link to="/cadastro">Cadastro</Link>
+      </>
+    )}
+  </div>
+)}
           </div>
 
         </nav>
