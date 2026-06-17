@@ -19,41 +19,87 @@ import lasanha from "../../assets/lasanha.png";
 import frango from "../../assets/frango.png";
 import bolo_de_chocolate from "../../assets/bolo_de_chocolate.png";
 
-function Home() {
+// Imagens das categorias
+import arrozFeijao from "../../assets/arrozFeijão.png";
+import boloImg from "../../assets/bolo.png";
+import coxaFrango from "../../assets/coxadefrango.png";
+import sushiImg from "../../assets/sushi.png";
+import diversosImg from "../../assets/diversos.png";
+import risottoImg from "../../assets/risotto.png";
+import picanteImg from "../../assets/picante.png";
+import veganaImg from "../../assets/vegana.png";
 
+// Categorias da Home
+const categoriasHome = [
+  { titulo: "Salgado", imagem: arrozFeijao, tipoCategoria: "salgado" },
+  { titulo: "Doce", imagem: boloImg, tipoCategoria: "doce" },
+  { titulo: "Agridoce", imagem: veganaImg, tipoCategoria: "agridoce" },
+  {
+    titulo: "Carne de Frango",
+    imagem: coxaFrango,
+    tipoCategoria: "/receitas/descricao?descricao=frango&page=1&limit=999",
+    nomeExibicao: "Carne de Frango",
+  },
+  {
+    titulo: "Sushi",
+    imagem: sushiImg,
+    tipoCategoria: "/receitas/descricao?descricao=sushi&page=1&limit=999",
+    nomeExibicao: "Sushi",
+  },
+  {
+    titulo: "Feijoadas",
+    imagem: diversosImg,
+    tipoCategoria: "/receitas/descricao?descricao=feijoada&page=1&limit=999",
+    nomeExibicao: "Feijoadas",
+  },
+  {
+    titulo: "Risotos",
+    imagem: risottoImg,
+    tipoCategoria: "/receitas/descricao?descricao=risotto&page=1&limit=999",
+    nomeExibicao: "Risotos",
+  },
+  {
+    titulo: "Picantes",
+    imagem: picanteImg,
+    tipoCategoria: "/receitas/descricao?descricao=pimenta&page=1&limit=999",
+    nomeExibicao: "Picantes",
+  },
+];
+
+// receita da equipe, passando o id da receita
+const selecaoEquipe = [
+  { receitaId: 1 }, 
+  { receitaId: 2 }, 
+  { receitaId: 3 },
+  { receitaId: 4 },
+  { receitaId: 5 },
+  { receitaId: 6 },
+  { receitaId: 7 },
+];
+
+function Home() {
   const [receitas, setReceitas] = useState([]);
 
-  const bannersHome = [
-    cozinhar,
-    descubra,
-    inspire
-  ];
-
-  const bannersUltimasReceitas = [
-    lasanha,
-    frango,
-    bolo_de_chocolate
-  ];
+  const bannersHome = [cozinhar, descubra, inspire];
+  const bannersUltimasReceitas = [lasanha, frango, bolo_de_chocolate];
 
   useEffect(() => {
-
-    api.get("/receitas/todas?page=1&limit=93")
+    api
+      .get("/receitas/todas?page=1&limit=93")
       .then((response) => {
         setReceitas(response.data.items);
       })
       .catch((erro) => {
         console.log(erro);
       });
-
   }, []);
 
   return (
     <>
-
       {/* primeiro carousel */}
       <Carousel imagens={bannersHome} />
 
-      <DivisaoTitulo titulo="Receitas em Destaque"/>
+      <DivisaoTitulo titulo="Receitas em Destaque" />
 
       <div className={styles.cardContainer}>
         {receitas.slice(0, 5).map((receita) => (
@@ -67,28 +113,27 @@ function Home() {
         ))}
       </div>
 
-      <DivisaoTitulo titulo="Categorias"/>
+      <DivisaoTitulo titulo="Categorias" />
 
       <div className={styles.categoriasContainer}>
-
         <div className={styles.cardsContainer}>
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
+          {categoriasHome.map((cat, i) => (
+            <CardVertical
+              key={i}
+              imagem={cat.imagem}
+              titulo={cat.titulo}
+              tipoCategoria={cat.tipoCategoria}
+              nomeExibicao={cat.nomeExibicao || cat.titulo}
+            />
+          ))}
         </div>
 
         <div className={styles.bannerContainer}>
           <BannerCategorias />
         </div>
-
       </div>
 
-      <DivisaoTitulo titulo="Últimas Receitas"/>
+      <DivisaoTitulo titulo="Últimas Receitas" />
 
       {/* carousel do ultimas receitas */}
       <Carousel imagens={bannersUltimasReceitas} />
@@ -105,20 +150,15 @@ function Home() {
         ))}
       </div>
 
-      <DivisaoTitulo titulo="Seleção da equipe"/>
+      <DivisaoTitulo titulo="Seleção da equipe" />
 
       <div className={styles.selecaoContainer}>
         <div className={styles.cardsContainer3}>
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
-          <CardVertical />
+          {selecaoEquipe.map((item, i) => (
+            <CardVertical key={i} receitaId={item.receitaId} />
+          ))}
         </div>
       </div>
-
     </>
   );
 }
