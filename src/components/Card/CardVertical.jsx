@@ -4,24 +4,23 @@ import styles from "./CardVertical.module.css";
 import api from "../../services/api";
 import descubra from "../../assets/descubra.png";
 
-function CardVertical({ imagem, titulo, tipoCategoria, nomeExibicao, receitaId }) {
+function CardVertical({ tipoCategoria, nomeExibicao, imagem, receitaId }) {
 
   const [dadosReceita, setDadosReceita] = useState(null);
 
   useEffect(() => {
-    // Só busca da API se não receber imagem/titulo manualmente e tiver um receitaId
-    if (receitaId && (!imagem || !titulo)) {
+    if (receitaId) {
       api.get(`/receitas/${receitaId}`)
         .then((res) => setDadosReceita(res.data))
         .catch((err) => console.log(err));
     }
   }, [receitaId]);
 
-  const imgFinal    = imagem  || dadosReceita?.link_imagem || descubra;
-  const tituloFinal = titulo  || dadosReceita?.receita     || "Carregando...";
+  const imgFinal    = receitaId ? dadosReceita?.link_imagem || descubra : imagem || descubra;
+  const tituloFinal = receitaId ? dadosReceita?.receita     || "Carregando..." : nomeExibicao || "";
 
   const destino = tipoCategoria
-    ? { pathname: "/pages/listagem", state: { tipoCategoria, nomeExibicao: nomeExibicao || tituloFinal } }
+    ? { pathname: "/pages/listagem", state: { tipoCategoria, nomeExibicao } }
     : { pathname: `/receita/${receitaId}` };
 
   return (

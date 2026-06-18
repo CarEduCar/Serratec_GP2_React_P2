@@ -5,7 +5,7 @@ import Logo from "../LogoSRP2/Logo";
 
 import styles from "./Header.module.css";
 import logo from "../../assets/logoSRP2.png";
-import avatar from "../../assets/placeholderteste.jpeg";
+import avatar from "../../assets/placeholderteste.png";
 
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../services/api"
