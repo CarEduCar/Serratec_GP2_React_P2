@@ -9,25 +9,29 @@ import ReceitaDetails from "./Pages/ReceitaEspecifica/ReceitaEspecifica"
 import { CategoriaReceitas } from "./Pages/CategoriaReceitas/CategoriaReceitas"
 import { Routes, Route } from "react-router-dom";
 import Categorias from "./Pages/Categorias/categorias";
+import ScrollToTop from "./components/ScrollToTop/scrolltotop";
 
 function App() {
-    return (
-        <div className="app">
-            <Header />
-            <main className="content">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/cadastro" element={<Cadastro />} />
-                    <Route path="/categoria" element={<Categorias />} />
-                    <Route path="/pages/listagem" element={<CategoriaReceitas />} />
-                    <Route path="/favoritos" element={<Favoritos />} />
-                    <Route path="/receita/:id" element={<ReceitaDetails />} />
-                </Routes>
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="app">
+      <Header />
+      <ScrollToTop /> 
+
+      <main className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/categoria" element={<Categorias />} />
+          <Route path="/pages/listagem" element={<CategoriaReceitas />} />
+          <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/receita/:id" element={<ReceitaDetails />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
