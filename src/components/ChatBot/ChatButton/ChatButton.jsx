@@ -1,5 +1,5 @@
 import styles from "./ChatButton.module.css";
-import chatIcon from "../../../assets/placeholderteste.png";
+import chatIcon from "../../../assets/chat-icon.png";
 
 function ChatButton({ onClick }) {
   return (
