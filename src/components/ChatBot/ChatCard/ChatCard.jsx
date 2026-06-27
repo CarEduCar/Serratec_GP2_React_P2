@@ -1,20 +1,30 @@
 import styles from "./ChatCard.module.css";
 import ChatMessages from "../ChatMessages/ChatMessages";
 import ChatInput from "../ChatInput/ChatInput";
-import type { Message } from "../ChatBot";
+import chefAvatar from "../../../assets/placeholderteste.png";
 
-interface ChatCardProps {
-  onClose: () => void;
-  messages: Message[];
-  onSendMessage: (text: string) => void;
-}
-
-function ChatCard({ onClose, messages, onSendMessage }: ChatCardProps) {
+function ChatCard({
+  onClose,
+  messages,
+  onSendMessage,
+  isClosing,
+   isTyping,
+}) {
   return (
-    <div className={styles.chatCard}>
+    <div
+      className={`${styles.chatCard} ${
+        isClosing ? styles.closing : ""
+      }`}
+    >
       <header className={styles.header}>
         <div className={styles.headerInfo}>
-          <div className={styles.avatar}>🍳</div>
+          <div className={styles.avatar}>
+            <img
+              src={chefAvatar}
+              alt="Chef IA"
+              className={styles.avatarImage}
+            />
+          </div>
 
           <div className={styles.titleContainer}>
             <h2>Chef IA</h2>
@@ -28,7 +38,10 @@ function ChatCard({ onClose, messages, onSendMessage }: ChatCardProps) {
       </header>
 
       <main className={styles.messages}>
-        <ChatMessages messages={messages} />
+        <ChatMessages
+         messages={messages} 
+         isTyping={isTyping}
+         />
       </main>
 
       <footer className={styles.footer}>

@@ -1,11 +1,7 @@
-import { useState, KeyboardEvent } from "react";
+import { useState } from "react";
 import styles from "./ChatInput.module.css";
 
-interface ChatInputProps {
-  onSendMessage: (text: string) => void;
-}
-
-function ChatInput({ onSendMessage }: ChatInputProps) {
+function ChatInput({ onSendMessage }) {
   const [message, setMessage] = useState("");
 
   function handleSend() {
@@ -15,7 +11,7 @@ function ChatInput({ onSendMessage }: ChatInputProps) {
     setMessage("");
   }
 
-  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
+  function handleKeyDown(e) {
     if (e.key === "Enter") {
       handleSend();
     }
