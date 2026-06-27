@@ -1,24 +1,21 @@
 package com.saborrei.saborrei.api.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.saborrei.saborrei.api.dto.ChatRequest;
 import com.saborrei.saborrei.api.dto.ChatResponse;
-
+import com.saborrei.saborrei.api.service.ChatService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/chat")
+@RequestMapping("/api/chat")
+@CrossOrigin(origins = "*")
 public class ChatController {
-    
+
+    @Autowired
+    private ChatService chatService;
+
     @PostMapping
-    public ChatResponse conversar(@RequestBody ChatRequest request){
-        
-        String pergunta = request.getPergunta();
-
-        return new ChatResponse("Recebi sua pergunta: " + pergunta);
+    public ChatResponse conversar(@RequestBody ChatRequest request) {
+        return chatService.processarPergunta(request);
     }
-
 }
