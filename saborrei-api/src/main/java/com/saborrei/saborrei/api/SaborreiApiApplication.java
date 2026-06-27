@@ -10,4 +10,4 @@ public class SaborreiApiApplication {
 		SpringApplication.run(SaborreiApiApplication.class, args);
 	}
 
-}
+}	
