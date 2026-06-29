@@ -21,12 +21,15 @@ function ChatBot() {
   }
 
   function closeChat() {
-    setIsClosing(true);
-    // setTimeout(() => {
-      setIsClosing(false);
-      setIsOpen(false);
-    // }, 300);
-  }
+  if (isClosing) return;
+
+  setIsClosing(true);
+
+  setTimeout(() => {
+    setIsOpen(false);
+    setIsClosing(false);
+  }, 280);
+}
 
   async function sendMessage(text) {
     const userMessage = { id: Date.now(), sender: "user", text };

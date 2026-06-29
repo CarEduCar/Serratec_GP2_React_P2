@@ -23,14 +23,13 @@
 
   z-index: 998;
 
-  animation: openChat 0.28s ease;
+  animation: openChat 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: bottom right;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* HEADER */
 .header {
   height: 80px;
 
@@ -44,7 +43,7 @@
 
   flex-shrink: 0;
 
-  box-shadow: 0 6px 18px #F9F5E6;
+  box-shadow: 0 6px 18px rgba(249, 245, 230, 0.4);
 }
 
 .headerInfo {
@@ -53,7 +52,6 @@
   gap: 14px;
 }
 
-/* AVATAR */
 .avatar {
   width: 48px;
   height: 48px;
@@ -79,7 +77,6 @@
   display: block;
 }
 
-/* TITLE */
 .titleContainer {
   display: flex;
   flex-direction: column;
@@ -102,7 +99,6 @@
   font-size: 15px;
 }
 
-/* CLOSE BUTTON */
 .closeButton {
   width: 36px;
   height: 36px;
@@ -110,22 +106,31 @@
   border: none;
   border-radius: 50%;
 
-  background: transparent;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f1e6d2;
 
-  color: faf4e8;
-
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
 
   cursor: pointer;
 
-  transition: 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 .closeButton:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.05);
 }
 
-/* MESSAGES */
+.closeButton:active {
+  transform: scale(0.92);
+}
+
 .messages {
   flex: 1;
 
@@ -138,29 +143,29 @@
   overflow-y: auto;
 }
 
-/* FOOTER */
 .footer {
   min-height: 80px;
 
   border-top: 1px solid rgba(125, 36, 28, 0.12);
 
-  background: linear-gradient(180deg, #faf4e8 0%, #faf4e8 100%);
+  background: #faf4e8;
 
   padding: 16px;
 
   flex-shrink: 0;
 }
 
-/* ANIMATIONS */
 @keyframes openChat {
   from {
     opacity: 0;
-    transform: scale(0.88) translateY(20px);
+    transform: scale(0.9) translateY(20px);
+    filter: blur(2px);
   }
 
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
+    filter: blur(0);
   }
 }
 
@@ -168,14 +173,16 @@
   from {
     opacity: 1;
     transform: scale(1) translateY(0);
+    filter: blur(0);
   }
 
   to {
     opacity: 0;
-    transform: scale(0.88) translateY(20px);
+    transform: scale(0.9) translateY(20px);
+    filter: blur(3px);
   }
 }
 
 .closing {
-  animation: closeChat 0.28s ease forwards;
+  animation: closeChat 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }

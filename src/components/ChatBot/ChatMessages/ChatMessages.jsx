@@ -12,19 +12,29 @@ function ChatMessages({ messages, isTyping }) {
 
   return (
     <div className={styles.container}>
-      {messages.map((msg) =>
-        msg.sender === "user" ? (
-          <UserMessage key={msg.id} text={msg.text} />
-        ) : (
-          <ChatBotMessage key={msg.id} text={msg.text} />
-        )
-      )}
+      {messages.map((msg) => (
+        <div
+          key={msg.id}
+          className={
+            msg.sender === "user"
+              ? styles.userRow
+              : styles.botRow
+          }
+        >
+          {msg.sender === "user" ? (
+            <UserMessage text={msg.text} />
+          ) : (
+            <ChatBotMessage text={msg.text} />
+          )}
+        </div>
+      ))}
 
       {isTyping && (
-        <ChatBotMessage text="..." />
+        <div className={styles.botRow}>
+          <ChatBotMessage text="..." />
+        </div>
       )}
 
-     
       <div ref={endRef} />
     </div>
   );
