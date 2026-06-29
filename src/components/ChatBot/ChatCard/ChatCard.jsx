@@ -8,7 +8,7 @@ function ChatCard({
   messages,
   onSendMessage,
   isClosing,
-   isTyping,
+  isTyping,
 }) {
   return (
     <div
@@ -39,9 +39,9 @@ function ChatCard({
 
       <main className={styles.messages}>
         <ChatMessages
-         messages={messages} 
-         isTyping={isTyping}
-         />
+          messages={messages}
+          isTyping={isTyping}
+        />
       </main>
 
       <footer className={styles.footer}>
