@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ChatButton from "./ChatButton/ChatButton";
 import ChatCard from "./ChatCard/ChatCard";
-import { enviarMensagem } from "./api/chatService";
+import { enviarMensagem } from "../../services/chatService";
 
 function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);

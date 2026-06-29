@@ -4,15 +4,18 @@ import com.saborrei.saborrei.api.dto.ChatRequest;
 import com.saborrei.saborrei.api.dto.ChatResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 
 import java.util.Map;
 
 @Service
+
+
 public class ChatService {
 
-    // @Value("${n8n.webhook.url}")
-    private String n8nWebhookUrl="http://localhost:5678/webhook-test/ia";
+    @Value("${n8n.webhook.url}")
+    private String n8nWebhookUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
